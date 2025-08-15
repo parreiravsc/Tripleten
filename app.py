@@ -42,12 +42,15 @@ hist_button = st.button('Criar histograma')
 
 if hist_button:  # se o botão for clicado
     # escrever uma mensagem
-    st.write(
-        'Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
-    st.write(f'{modelo_escolhido} - {ano_selecionado}')
-    # criar um histograma
-    fig = px.histogram(car_data_filt, x=carac_busca)
-
+    if car_data_filt.empty:
+        st.warning('Sem representantes dessa categoria')
+    else:
+        st.write(
+            'Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
+        st.write(f'{modelo_escolhido} - {ano_selecionado}')
+        # criar um histograma
+        fig = px.histogram(car_data_filt, x=carac_busca)
+        st.plotly_chart(fig, use_container_width=True)
 
 disp_button = st.button('Criar gráfico de dispersão pelo preço')
 if disp_button:  # se o botão for clicado
