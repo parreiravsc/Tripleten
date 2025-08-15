@@ -7,8 +7,7 @@ from TratamentoDados import DataFrame
 
 
 # ler o conjunto de dados:
-car_data = pd.read_csv(
-    'C:\\Users\\vinyc\\Repositorios\\Tripleten\\vehicles.csv')  # lendo os dados
+car_data = pd.read_csv('vehicles.csv')  # lendo os dados
 
 st.header('Infomações sobre vendas de carro 2018-2019 ')
 
