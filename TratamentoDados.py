@@ -9,8 +9,8 @@ class DataFrame:
 
     def ajusta_dados(self):
         self.df['date_posted'] = pd.to_datetime(self.df['date_posted'])
-        self.df['model_year'] = pd.to_datetime(
-            self.df['model_year'], format='%Y').dt.year
+        # ajustado para string devido a falta de preeencimento:
+        self.df['model_year'] = self.df['cylinders'].astype(str)
         self.df['model_year'] = self.df['model_year'].fillna('unknown')
         self.df['cylinders'] = self.df['cylinders'].fillna(0).astype(int)
         self.df['odometer'] = self.df['odometer'].fillna(0).astype(int)
